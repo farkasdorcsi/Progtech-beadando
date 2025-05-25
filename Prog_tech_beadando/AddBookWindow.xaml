@@ -1,0 +1,39 @@
+﻿<Window x:Class="Prog_korny_wpf_beadando.AddBookWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Prog_korny_wpf_beadando"
+        mc:Ignorable="d"
+        Title="Új könyv hozzáadása" Height="300" Width="400">
+    <Grid Margin=" 10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Margin="0 10">
+            
+            <StackPanel Margin="0 5">
+                <TextBlock Text="Cím"/>
+                <TextBox x:Name="TitleBox"/>
+            </StackPanel>
+
+            <StackPanel Margin="0 5">
+                <TextBlock Text="Szerző"/>
+                <TextBox x:Name="AuthorBox"/>
+            </StackPanel>
+
+            <ComboBox x:Name="ConditionBox" Margin="0 5">
+                <ComboBoxItem Content="Új" />
+                <ComboBoxItem Content="Jó" />
+                <ComboBoxItem Content="Használt" />
+            </ComboBox>
+            <Button Content="Mentés" Click="SaveBook_Click" Width="100" HorizontalAlignment="Left"/>
+        </StackPanel>
+
+
+    </Grid>
+</Window>

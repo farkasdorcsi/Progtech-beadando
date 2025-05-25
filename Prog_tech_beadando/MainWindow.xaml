@@ -1,0 +1,74 @@
+﻿<Window x:Class="Prog_korny_wpf_beadando.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Prog_korny_wpf_beadando"
+        mc:Ignorable="d"
+        Title="Könyvcsere" Height="450" Width="800">
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Margin="10">
+            
+            <Button Content="Új könyv hozzáadása"
+                Click="AddBookButton_Click"
+                Width="200" Height="40"
+                Background="#4CAF50"
+                Foreground="White"
+                FontWeight="Bold"
+                FontSize="14"
+                Cursor="Hand"
+                BorderThickness="0"
+                Margin="0,0,10,0"/>
+
+            <Button Content="Csereajánlat küldése"
+                Click="SendExchangeRequest_Click"
+                Width="220" Height="40"
+                Background="#2196F3"
+                Foreground="White"
+                FontWeight="Bold"
+                FontSize="14"
+                Cursor="Hand"
+                BorderThickness="0"/>
+
+            <Button Content="Beérkezett ajánlatok"
+                Width="200" Height="40"
+            Background="Violet"
+            Foreground="White"
+            FontWeight="Bold"
+            FontSize="14"
+            Cursor="Hand"
+            BorderThickness="0"
+            Margin="10,0"
+            Click="OpenRequests_Click"/>
+
+        </StackPanel>
+
+
+        <DataGrid x:Name="BooksGrid"
+          Grid.Row="2"
+          AutoGenerateColumns="True"
+          Margin="10">
+            <DataGrid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#E6E6FA" Offset="0"/>
+                    <!-- Halvány lila -->
+                    <GradientStop Color="#FFDAB9" Offset="1"/>
+                    <!-- Barack -->
+                </LinearGradientBrush>
+            </DataGrid.Background>
+        </DataGrid>
+
+        
+
+
+    </Grid>
+</Window>

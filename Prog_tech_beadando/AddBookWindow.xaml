@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Prog_korny_wpf_beadando"
         mc:Ignorable="d"
-        Title="Új könyv hozzáadása" Height="300" Width="400">
+        Title="Új könyv hozzáadása" Height="400" Width="350">
     <Grid Margin=" 10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -26,11 +26,20 @@
                 <TextBox x:Name="AuthorBox"/>
             </StackPanel>
 
+            <TextBlock Text="Állapot" Margin="0,10,0,0"/>
             <ComboBox x:Name="ConditionBox" Margin="0 5">
                 <ComboBoxItem Content="Új" />
                 <ComboBoxItem Content="Jó" />
                 <ComboBoxItem Content="Használt" />
             </ComboBox>
+
+            <TextBlock Text="Leírás" Margin="0,10,0,0"/>
+            <TextBox x:Name="DescriptionBox" Height="60" TextWrapping="Wrap" AcceptsReturn="True"/>
+
+            <TextBlock Text="Kép elérési útja" Margin="0,10,0,0"/>
+            <TextBox x:Name="ImagePathBox" Height="20 "/>
+
+
             <Button Content="Mentés" Click="SaveBook_Click" Width="100" HorizontalAlignment="Left"/>
         </StackPanel>
 

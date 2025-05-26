@@ -5,7 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Prog_korny_wpf_beadando"
         mc:Ignorable="d"
-        Title="Könyvcsere" Height="450" Width="800">
+        Title="Könyvcsere" Height="500" Width="900">
+
+    <Window.Resources>
+        <DataTemplate x:Key="ImageCellTemplate">
+            <Image Source="{Binding image_path}"
+                   Height="60" Width="60"
+                   Stretch="UniformToFill"
+                   Margin="5"/>
+        </DataTemplate>
+    </Window.Resources>
+
+
     <Grid>
         
         <Grid.RowDefinitions>
@@ -55,8 +66,26 @@
 
         <DataGrid x:Name="BooksGrid"
           Grid.Row="2"
-          AutoGenerateColumns="True"
+          AutoGenerateColumns="False"                     
           Margin="10">
+
+
+            <DataGrid.Columns>
+
+                
+
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
+                <DataGridTextColumn Header="Cím" Binding="{Binding Cím}" />
+                <DataGridTextColumn Header="Szerző" Binding="{Binding Szerző}" />
+                <DataGridTextColumn Header="Állapot" Binding="{Binding Állapot}" />
+                <DataGridTextColumn Header="Leírás" Binding="{Binding Leírás}" />
+                <DataGridTextColumn Header="Tulajdonos" Binding="{Binding Tulajdonos}" />
+                <DataGridTemplateColumn Header="Borítókép"
+                                CellTemplate="{StaticResource ImageCellTemplate}" />
+
+            </DataGrid.Columns>
+
+
             <DataGrid.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#E6E6FA" Offset="0"/>

@@ -34,8 +34,10 @@ namespace Prog_korny_wpf_beadando
             string title = TitleBox.Text.Trim();
             string author = AuthorBox.Text.Trim();
             string condition = (ConditionBox.SelectedItem as ComboBoxItem)?.Content.ToString();
+            string description = DescriptionBox.Text.Trim();
+            string imagePath = ImagePathBox.Text.Trim();
 
-            if (string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(author) || condition == null)
+            if (string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(author) || condition == null || string.IsNullOrWhiteSpace(description) || string.IsNullOrWhiteSpace(imagePath))
             {
                 MessageBox.Show("Kérlek, tölts ki minden mezőt.");
                 return;
@@ -46,11 +48,13 @@ namespace Prog_korny_wpf_beadando
                 try
                 {
                     conn.Open();
-                    string query = "INSERT INTO könyvek ( title, author, book_condition, user_id) VALUES ( @title, @author, @cond, @user)";
+                    string query = "INSERT INTO könyvek ( title, author, book_condition, description, image_path user_id) VALUES ( @title, @author, @cond, @desc, @img, @user)";
                     MySqlCommand cmd = new MySqlCommand(query, conn);                    
                     cmd.Parameters.AddWithValue("@title", title);
                     cmd.Parameters.AddWithValue("@author", author);
                     cmd.Parameters.AddWithValue("@cond", condition);
+                    cmd.Parameters.AddWithValue("@desc", description);
+                    cmd.Parameters.AddWithValue("@img", imagePath);
                     cmd.Parameters.AddWithValue("@user", loggedInUserId);
                     cmd.ExecuteNonQuery();
 

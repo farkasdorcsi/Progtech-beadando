@@ -56,6 +56,8 @@ namespace Prog_korny_wpf_beadando
                     title AS Cím,
                     author AS Szerző,
                     book_condition AS Állapot,
+                    description AS Leírás,
+                    image_path,
                     felhasználók.felhasználónév AS Tulajdonos
                 FROM könyvek
                 JOIN felhasználók ON könyvek.user_id = felhasználók.id";
@@ -71,6 +73,18 @@ namespace Prog_korny_wpf_beadando
                     MessageBox.Show("Hiba: " + ex.Message);
                 }
             }
+            
+            if (!BooksGrid.Columns.OfType<DataGridTemplateColumn>().Any(col => col.Header.ToString() == "Borítókép"))
+            {
+                var imageColumn = new DataGridTemplateColumn
+                {
+                    Header = "Borítókép",
+                    CellTemplate = (DataTemplate)this.Resources["ImageCellTemplate"]
+                };
+
+                BooksGrid.Columns.Add(imageColumn);
+            }
+
         }
 
 

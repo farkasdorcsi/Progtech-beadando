@@ -10,15 +10,21 @@ namespace Prog_korny_wpf_beadando
     [TestClass]
     public  class LoginWindowTest
     {
-        LoginWindow window = new LoginWindow();
+        LoginWindow login = new LoginWindow();
 
-        private static string username = "TestUsername";
-        private static string password = "TestPassword";
+        private static string username = "TestUser";
+        private static string password = "TestPass";
+        
 
         [TestMethod]
         public void LoginTest()
         {
-          
+            login.UsernameBox.Text.Equals(username);
+            login.PasswordBox.Equals(password);
+
+
+            Assert.IsFalse(login.IsVisible);
+            
         }
     }
 }

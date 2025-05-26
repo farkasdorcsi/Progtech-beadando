@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.TextFormatting;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
 
@@ -18,7 +19,10 @@ namespace Prog_korny_wpf_beadando
     
     public partial class RegisterWindow : Window
     {
-        //TODO
+        string username;
+        string password;
+        string email;
+        public bool registered = false;
 
         private string connectionString = "server=localhost;user id=root;password=;database=könyvtár;SslMode=none;";
 
@@ -27,12 +31,12 @@ namespace Prog_korny_wpf_beadando
             InitializeComponent();
         }
 
-        private void RegisterButton_Click(object sender, RoutedEventArgs e)
+        internal void RegisterUser()
         {
+
             string username = UsernameBox.Text.Trim();
             string password = PasswordBox.Password.Trim();
             string email = EmailBox.Text.Trim();
-
 
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(email))
             {
@@ -73,7 +77,16 @@ namespace Prog_korny_wpf_beadando
                 {
                     MessageBox.Show("Hiba a regisztráció során: " + ex.Message);
                 }
+
             }
+        }
+
+        private void RegisterButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            RegisterUser();
+            this.Close();
+            registered = true;
         }
 
     }

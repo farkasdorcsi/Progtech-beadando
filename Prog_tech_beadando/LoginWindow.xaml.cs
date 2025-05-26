@@ -28,7 +28,7 @@ namespace Prog_korny_wpf_beadando
             InitializeComponent();
         }
 
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        public void Login() 
         {
             string username = UsernameBox.Text.Trim();
             string password = PasswordBox.Password.Trim();
@@ -68,6 +68,11 @@ namespace Prog_korny_wpf_beadando
                     MessageBox.Show("Hiba a bejelentkezés során: " + ex.Message);
                 }
             }
+        }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            Login();
         }
         
 

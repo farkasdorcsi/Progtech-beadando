@@ -14,12 +14,13 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
 using System.Data;
-using Prog_korny_wpf_beadando;
 
 
 namespace Prog_korny_wpf_beadando
 {
-    
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
     public partial class MainWindow : Window
     {
         private int loggedInUserId;
@@ -84,11 +85,7 @@ namespace Prog_korny_wpf_beadando
                 BooksGrid.Columns.Add(imageColumn);
             }
 
-
-
         }
-
-
 
 
         private void SendExchangeRequest_Click(object sender, RoutedEventArgs e)
@@ -114,50 +111,7 @@ namespace Prog_korny_wpf_beadando
             win.ShowDialog();
         }
 
-
-        private void PrototypeButton_Click(object sender, RoutedEventArgs e)
-        {
-            Book prototype = new Book
-            {
-                Title = "Prototípus könyv",
-                Author = "Ismeretlen",
-                Condition = "Új",
-                Description = "Ez egy minta könyv.",
-                ImagePath = "img/default.jpg",
-                UserId = loggedInUserId
-            };
-
-            Book ujKonyv = prototype.Clone();
-            ujKonyv.Title = "Másolt könyv – új cím";
-            ujKonyv.UserId = loggedInUserId;
-
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
-            {
-                try
-                {
-                    conn.Open();
-                    string query = @"INSERT INTO könyvek (title, author, book_condition, description, image_path, user_id)
-                             VALUES (@title, @auth, @cond, @desc, @img, @user)";
-
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@title", ujKonyv.Title);
-                    cmd.Parameters.AddWithValue("@auth", ujKonyv.Author);
-                    cmd.Parameters.AddWithValue("@cond", ujKonyv.Condition);
-                    cmd.Parameters.AddWithValue("@desc", ujKonyv.Description);
-                    cmd.Parameters.AddWithValue("@img", ujKonyv.ImagePath);
-                    cmd.Parameters.AddWithValue("@user", ujKonyv.UserId);
-
-                    cmd.ExecuteNonQuery();
-
-                    MessageBox.Show("Könyv (Prototype alapján) sikeresen mentve!");
-                    LoadBooks();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Adatbázis hiba: " + ex.Message);
-                }
-            }
-        }
+        
 
 
     }

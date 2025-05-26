@@ -1,0 +1,28 @@
+﻿<Window x:Class="Prog_korny_wpf_beadando.GenreListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Prog_korny_wpf_beadando"
+        mc:Ignorable="d"
+        Title="GenreListWindow" Height="450" Width="800">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="1" Text="Gyakori műfajok:" Margin="0,10,0,0" Grid.RowSpan="1" FontSize="30"/>
+        <TextBlock x:Name="Genrefield" Grid.Row="2" Grid.RowSpan="4" FontSize="25"/>
+        <Button x:Name="search" Content="keresés" Grid.Row="5" Height="50" Width="110" FontSize="30" Click="search_Click"></Button>
+        <Button x:Name="back" Content="Vissza" Grid.Row="5" Height="50" FontSize="30" Width="110" HorizontalAlignment="Left" Click="back_Click"></Button>
+
+
+    </Grid>
+</Window>

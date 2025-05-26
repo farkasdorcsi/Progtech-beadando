@@ -41,8 +41,9 @@
 
 
             <Button Content="Mentés" Click="SaveBook_Click" Width="100" HorizontalAlignment="Left"/>
+            <Button Grid.Row="4" Content="Műfaj keresése" Width="100" HorizontalAlignment="Left" Click="GenreSearch_Click"/>
         </StackPanel>
 
-
+        
     </Grid>
 </Window>

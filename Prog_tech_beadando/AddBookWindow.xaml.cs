@@ -68,8 +68,11 @@ namespace Prog_korny_wpf_beadando
             }
         }
 
-
-
-
+        private void GenreSearch_Click(object sender, RoutedEventArgs e)
+        {
+            GenreListWindow genre = new GenreListWindow();
+            genre.Show();
+            this.Close();
+        }
     }
 }

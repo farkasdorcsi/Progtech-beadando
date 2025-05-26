@@ -18,6 +18,7 @@ namespace Prog_korny_wpf_beadando
     
     public partial class RegisterWindow : Window
     {
+        //TODO
 
         private string connectionString = "server=localhost;user id=root;password=;database=könyvtár;SslMode=none;";
 

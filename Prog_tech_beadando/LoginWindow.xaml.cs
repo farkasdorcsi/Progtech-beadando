@@ -20,6 +20,7 @@ namespace Prog_korny_wpf_beadando
     /// </summary>
     public partial class LoginWindow : Window
     {
+        
         private string connectionString = "server=localhost;user id=root;password=;database=könyvtár;SslMode=none;";
 
         public LoginWindow()
@@ -68,6 +69,7 @@ namespace Prog_korny_wpf_beadando
                 }
             }
         }
+        
 
         private void OpenRegister_Click(object sender, RoutedEventArgs e)
         {

@@ -61,6 +61,19 @@
             Margin="10,0"
             Click="OpenRequests_Click"/>
 
+            <Button Content="Prototípus mentése"
+            Click="PrototypeButton_Click"
+            Background="Gray"
+            Foreground="White"
+            Margin="10"
+            Width="200"
+            Height="40"
+            FontWeight="Bold"
+            FontSize="14"
+            Cursor="Hand"
+            BorderThickness="0"/>
+
+
         </StackPanel>
 
 
